@@ -27,6 +27,7 @@ class QuoteViewModel: ObservableObject {
     @Published var currentQuote: Quote
     @Published var isShareSheetPresented = false
     @Published var isImageShareSheetPresented = false
+    @Published var showQuoteSharingView = false
     @Published var shareImage: UIImage?
     @Published var favoriteQuotes: [Quote] = []
     @Published var themeMode: ThemeMode {
@@ -105,24 +106,32 @@ class QuoteViewModel: ObservableObject {
     }
     
     func shareQuote() {
-        isShareSheetPresented = true
+        showQuoteSharingView = true
     }
     
     @MainActor
-    func shareQuoteAsImage(backgroundImageName: String) {
+    func shareQuoteAsImage(style: QuoteImageGenerator.BackgroundStyle = .gradient) {
         print("🎨 Starting image generation...")
         print("Quote: \(currentQuote.text)")
-        print("Background: \(backgroundImageName)")
+        print("Style: \(style)")
         
-        // TODO: Implement QuoteImageGenerator class
-        // if let image = QuoteImageGenerator.generateImage(from: currentQuote, backgroundImageName: backgroundImageName) {
-        //     print("✅ Image generated successfully")
-        //     shareImage = image
-        //     isImageShareSheetPresented = true
-        // } else {
-            // Fallback to text sharing if image generation fails
-            shareQuote()
-        // }
+        let quote = self.currentQuote // Capture the quote to avoid self capture issues
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            if let image = QuoteImageGenerator.generateImage(from: quote, style: style) {
+                print("✅ Image generated successfully")
+                DispatchQueue.main.async {
+                    self?.shareImage = image
+                    self?.isImageShareSheetPresented = true
+                }
+            } else {
+                print("❌ Image generation failed, falling back to text sharing")
+                // Fallback to text sharing if image generation fails
+                DispatchQueue.main.async {
+                    self?.shareQuote()
+                }
+            }
+        }
     }
     
     // MARK: - Favorites functionality

@@ -142,4 +142,50 @@ If you encounter any issues:
 2. Verify your OpenAI API key and credits
 3. Ensure all files are properly added to your Xcode target
 
-The AI chat feature is now ready to use! Users can tap the "AI Chat" button to start meaningful conversations about quotes and philosophy. 
+The AI chat feature is now ready to use! Users can tap the "AI Chat" button to start meaningful conversations about quotes and philosophy.
+
+## Beautiful Quote Image Sharing
+
+### Overview
+
+The app now features a powerful image generation system that creates beautiful, shareable images from quotes. Users can choose from multiple artistic styles and share stunning visual quotes on social media.
+
+### Features
+
+- **Multiple Artistic Styles**:
+  - **Gradient**: Beautiful color gradients with dynamic combinations
+  - **Minimal**: Clean, elegant design with subtle geometric elements
+  - **Nature**: Earth-tone inspired backgrounds with organic shapes
+  - **Abstract**: Flowing, artistic designs with creative visual elements
+
+- **High-Quality Images**: Generated at 1080x1080 resolution (Instagram-ready)
+- **Typography**: Professional font styling with proper text hierarchy
+- **Branding**: Subtle app watermark for attribution
+- **Multi-language Support**: Works with all supported quote languages
+
+### How to Use
+
+1. Tap the "Share" button on the main quote screen
+2. Choose "Share as Beautiful Image" from the options
+3. Select your preferred visual style from the preview cards
+4. Tap "Create Beautiful Image" to generate
+5. Share the generated image through any social app
+
+### Technical Implementation
+
+The image generation system uses:
+- Core Graphics for high-quality rendering
+- Dynamic background generation based on selected style
+- Proper text layout with multiple font weights and sizes
+- Color-adaptive text for optimal readability
+- Background thread processing for smooth UI performance
+
+### Customization
+
+The image generator supports easy customization:
+- Add new background styles in `QuoteImageGenerator.swift`
+- Modify typography settings for different languages
+- Adjust image dimensions for different social platforms
+- Customize color schemes and gradients
+
+This feature transforms simple text quotes into visually stunning, shareable content that enhances user engagement and app virality. 

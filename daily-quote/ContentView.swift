@@ -314,8 +314,13 @@ struct ContentView: View {
                 wallpaperOpacity = 1.0
             }
         }
-        .sheet(isPresented: $quoteViewModel.isShareSheetPresented) {
-            ShareSheet(text: "\"\(quoteViewModel.currentQuote.text)\" — \(quoteViewModel.currentQuote.author)")
+        .sheet(isPresented: $quoteViewModel.showQuoteSharingView) {
+            QuoteSharingView(quote: quoteViewModel.currentQuote)
+        }
+        .sheet(isPresented: $quoteViewModel.isImageShareSheetPresented) {
+            if let image = quoteViewModel.shareImage {
+                ShareSheet(activityItems: [image])
+            }
         }
         .sheet(isPresented: $showingFavorites) {
             FavoritesView()
