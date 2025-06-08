@@ -1,0 +1,88 @@
+{
+  "source": "/Users/lb/Desktop/daily-quote/daily-quote/daily-quote/AIChatView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "AI Chat",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 164
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 33,
+          "startingLine": 168
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI Ready (Text Mode)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 19
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mock Mode",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI Ready (Voice & Text)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "Dismiss",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 81
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ask about this quote...",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 124
+        }
+      },
+      {
+        "comment": "",
+        "key": "Waiting for connection...",
+        "location": {
+          "startingColumn": 87,
+          "startingLine": 124
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear Chat",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 176
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start Voice Mode",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 183
+        }
+      }
+    ]
+  },
+  "version": 1
+}

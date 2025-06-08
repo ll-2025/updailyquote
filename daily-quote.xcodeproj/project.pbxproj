@@ -7,40 +7,53 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		2B8BF4EC2DACB89400F6CD4B /* PBXContainerItemProxy */ = {
+		2BF8FECE2DB08EB60054EB9C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2B8BF4D62DACB89200F6CD4B /* Project object */;
+			containerPortal = 2BF8FEB82DB08EB50054EB9C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2B8BF4DD2DACB89200F6CD4B;
+			remoteGlobalIDString = 2BF8FEBF2DB08EB50054EB9C;
 			remoteInfo = "daily-quote";
 		};
-		2B8BF4F62DACB89400F6CD4B /* PBXContainerItemProxy */ = {
+		2BF8FED82DB08EB60054EB9C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2B8BF4D62DACB89200F6CD4B /* Project object */;
+			containerPortal = 2BF8FEB82DB08EB50054EB9C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2B8BF4DD2DACB89200F6CD4B;
+			remoteGlobalIDString = 2BF8FEBF2DB08EB50054EB9C;
 			remoteInfo = "daily-quote";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B8BF4DE2DACB89200F6CD4B /* daily-quote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "daily-quote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B8BF4EB2DACB89400F6CD4B /* daily-quoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "daily-quoteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B8BF4F52DACB89400F6CD4B /* daily-quoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "daily-quoteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BF8FEC02DB08EB50054EB9C /* daily-quote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "daily-quote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BF8FECD2DB08EB60054EB9C /* daily-quoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "daily-quoteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BF8FED72DB08EB60054EB9C /* daily-quoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "daily-quoteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2B0B54A12DB0A28900D0F09C /* Exceptions for "daily-quote" folder in "daily-quote" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2BF8FEBF2DB08EB50054EB9C /* daily-quote */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2B8BF4E02DACB89200F6CD4B /* daily-quote */ = {
+		2BF8FEC22DB08EB50054EB9C /* daily-quote */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2B0B54A12DB0A28900D0F09C /* Exceptions for "daily-quote" folder in "daily-quote" target */,
+			);
 			path = "daily-quote";
 			sourceTree = "<group>";
 		};
-		2B8BF4EE2DACB89400F6CD4B /* daily-quoteTests */ = {
+		2BF8FED02DB08EB60054EB9C /* daily-quoteTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "daily-quoteTests";
 			sourceTree = "<group>";
 		};
-		2B8BF4F82DACB89400F6CD4B /* daily-quoteUITests */ = {
+		2BF8FEDA2DB08EB60054EB9C /* daily-quoteUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "daily-quoteUITests";
 			sourceTree = "<group>";
@@ -48,21 +61,21 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2B8BF4DB2DACB89200F6CD4B /* Frameworks */ = {
+		2BF8FEBD2DB08EB50054EB9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2B8BF4E82DACB89400F6CD4B /* Frameworks */ = {
+		2BF8FECA2DB08EB60054EB9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2B8BF4F22DACB89400F6CD4B /* Frameworks */ = {
+		2BF8FED42DB08EB60054EB9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,22 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B8BF4D52DACB89200F6CD4B = {
+		2BF8FEB72DB08EB50054EB9C = {
 			isa = PBXGroup;
 			children = (
-				2B8BF4E02DACB89200F6CD4B /* daily-quote */,
-				2B8BF4EE2DACB89400F6CD4B /* daily-quoteTests */,
-				2B8BF4F82DACB89400F6CD4B /* daily-quoteUITests */,
-				2B8BF4DF2DACB89200F6CD4B /* Products */,
+				2BF8FEC22DB08EB50054EB9C /* daily-quote */,
+				2BF8FED02DB08EB60054EB9C /* daily-quoteTests */,
+				2BF8FEDA2DB08EB60054EB9C /* daily-quoteUITests */,
+				2BF8FEC12DB08EB50054EB9C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2B8BF4DF2DACB89200F6CD4B /* Products */ = {
+		2BF8FEC12DB08EB50054EB9C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B8BF4DE2DACB89200F6CD4B /* daily-quote.app */,
-				2B8BF4EB2DACB89400F6CD4B /* daily-quoteTests.xctest */,
-				2B8BF4F52DACB89400F6CD4B /* daily-quoteUITests.xctest */,
+				2BF8FEC02DB08EB50054EB9C /* daily-quote.app */,
+				2BF8FECD2DB08EB60054EB9C /* daily-quoteTests.xctest */,
+				2BF8FED72DB08EB60054EB9C /* daily-quoteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,134 +108,130 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2B8BF4DD2DACB89200F6CD4B /* daily-quote */ = {
+		2BF8FEBF2DB08EB50054EB9C /* daily-quote */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B8BF4FF2DACB89400F6CD4B /* Build configuration list for PBXNativeTarget "daily-quote" */;
+			buildConfigurationList = 2BF8FEE12DB08EB60054EB9C /* Build configuration list for PBXNativeTarget "daily-quote" */;
 			buildPhases = (
-				2B8BF4DA2DACB89200F6CD4B /* Sources */,
-				2B8BF4DB2DACB89200F6CD4B /* Frameworks */,
-				2B8BF4DC2DACB89200F6CD4B /* Resources */,
+				2BF8FEBC2DB08EB50054EB9C /* Sources */,
+				2BF8FEBD2DB08EB50054EB9C /* Frameworks */,
+				2BF8FEBE2DB08EB50054EB9C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2B8BF4E02DACB89200F6CD4B /* daily-quote */,
+				2BF8FEC22DB08EB50054EB9C /* daily-quote */,
 			);
 			name = "daily-quote";
-			packageProductDependencies = (
-			);
 			productName = "daily-quote";
-			productReference = 2B8BF4DE2DACB89200F6CD4B /* daily-quote.app */;
+			productReference = 2BF8FEC02DB08EB50054EB9C /* daily-quote.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2B8BF4EA2DACB89400F6CD4B /* daily-quoteTests */ = {
+		2BF8FECC2DB08EB60054EB9C /* daily-quoteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B8BF5022DACB89400F6CD4B /* Build configuration list for PBXNativeTarget "daily-quoteTests" */;
+			buildConfigurationList = 2BF8FEE42DB08EB60054EB9C /* Build configuration list for PBXNativeTarget "daily-quoteTests" */;
 			buildPhases = (
-				2B8BF4E72DACB89400F6CD4B /* Sources */,
-				2B8BF4E82DACB89400F6CD4B /* Frameworks */,
-				2B8BF4E92DACB89400F6CD4B /* Resources */,
+				2BF8FEC92DB08EB60054EB9C /* Sources */,
+				2BF8FECA2DB08EB60054EB9C /* Frameworks */,
+				2BF8FECB2DB08EB60054EB9C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2B8BF4ED2DACB89400F6CD4B /* PBXTargetDependency */,
+				2BF8FECF2DB08EB60054EB9C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2B8BF4EE2DACB89400F6CD4B /* daily-quoteTests */,
+				2BF8FED02DB08EB60054EB9C /* daily-quoteTests */,
 			);
 			name = "daily-quoteTests";
-			packageProductDependencies = (
-			);
 			productName = "daily-quoteTests";
-			productReference = 2B8BF4EB2DACB89400F6CD4B /* daily-quoteTests.xctest */;
+			productReference = 2BF8FECD2DB08EB60054EB9C /* daily-quoteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2B8BF4F42DACB89400F6CD4B /* daily-quoteUITests */ = {
+		2BF8FED62DB08EB60054EB9C /* daily-quoteUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B8BF5052DACB89400F6CD4B /* Build configuration list for PBXNativeTarget "daily-quoteUITests" */;
+			buildConfigurationList = 2BF8FEE72DB08EB60054EB9C /* Build configuration list for PBXNativeTarget "daily-quoteUITests" */;
 			buildPhases = (
-				2B8BF4F12DACB89400F6CD4B /* Sources */,
-				2B8BF4F22DACB89400F6CD4B /* Frameworks */,
-				2B8BF4F32DACB89400F6CD4B /* Resources */,
+				2BF8FED32DB08EB60054EB9C /* Sources */,
+				2BF8FED42DB08EB60054EB9C /* Frameworks */,
+				2BF8FED52DB08EB60054EB9C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2B8BF4F72DACB89400F6CD4B /* PBXTargetDependency */,
+				2BF8FED92DB08EB60054EB9C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2B8BF4F82DACB89400F6CD4B /* daily-quoteUITests */,
+				2BF8FEDA2DB08EB60054EB9C /* daily-quoteUITests */,
 			);
 			name = "daily-quoteUITests";
-			packageProductDependencies = (
-			);
 			productName = "daily-quoteUITests";
-			productReference = 2B8BF4F52DACB89400F6CD4B /* daily-quoteUITests.xctest */;
+			productReference = 2BF8FED72DB08EB60054EB9C /* daily-quoteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2B8BF4D62DACB89200F6CD4B /* Project object */ = {
+		2BF8FEB82DB08EB50054EB9C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					2B8BF4DD2DACB89200F6CD4B = {
+					2BF8FEBF2DB08EB50054EB9C = {
 						CreatedOnToolsVersion = 16.3;
 					};
-					2B8BF4EA2DACB89400F6CD4B = {
+					2BF8FECC2DB08EB60054EB9C = {
 						CreatedOnToolsVersion = 16.3;
-						TestTargetID = 2B8BF4DD2DACB89200F6CD4B;
+						TestTargetID = 2BF8FEBF2DB08EB50054EB9C;
 					};
-					2B8BF4F42DACB89400F6CD4B = {
+					2BF8FED62DB08EB60054EB9C = {
 						CreatedOnToolsVersion = 16.3;
-						TestTargetID = 2B8BF4DD2DACB89200F6CD4B;
+						TestTargetID = 2BF8FEBF2DB08EB50054EB9C;
 					};
 				};
 			};
-			buildConfigurationList = 2B8BF4D92DACB89200F6CD4B /* Build configuration list for PBXProject "daily-quote" */;
+			buildConfigurationList = 2BF8FEBB2DB08EB50054EB9C /* Build configuration list for PBXProject "daily-quote" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2B8BF4D52DACB89200F6CD4B;
+			mainGroup = 2BF8FEB72DB08EB50054EB9C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2B8BF4DF2DACB89200F6CD4B /* Products */;
+			productRefGroup = 2BF8FEC12DB08EB50054EB9C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2B8BF4DD2DACB89200F6CD4B /* daily-quote */,
-				2B8BF4EA2DACB89400F6CD4B /* daily-quoteTests */,
-				2B8BF4F42DACB89400F6CD4B /* daily-quoteUITests */,
+				2BF8FEBF2DB08EB50054EB9C /* daily-quote */,
+				2BF8FECC2DB08EB60054EB9C /* daily-quoteTests */,
+				2BF8FED62DB08EB60054EB9C /* daily-quoteUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2B8BF4DC2DACB89200F6CD4B /* Resources */ = {
+		2BF8FEBE2DB08EB50054EB9C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2B8BF4E92DACB89400F6CD4B /* Resources */ = {
+		2BF8FECB2DB08EB60054EB9C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2B8BF4F32DACB89400F6CD4B /* Resources */ = {
+		2BF8FED52DB08EB60054EB9C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,21 +241,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2B8BF4DA2DACB89200F6CD4B /* Sources */ = {
+		2BF8FEBC2DB08EB50054EB9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2B8BF4E72DACB89400F6CD4B /* Sources */ = {
+		2BF8FEC92DB08EB60054EB9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2B8BF4F12DACB89400F6CD4B /* Sources */ = {
+		2BF8FED32DB08EB60054EB9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,20 +265,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2B8BF4ED2DACB89400F6CD4B /* PBXTargetDependency */ = {
+		2BF8FECF2DB08EB60054EB9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2B8BF4DD2DACB89200F6CD4B /* daily-quote */;
-			targetProxy = 2B8BF4EC2DACB89400F6CD4B /* PBXContainerItemProxy */;
+			target = 2BF8FEBF2DB08EB50054EB9C /* daily-quote */;
+			targetProxy = 2BF8FECE2DB08EB60054EB9C /* PBXContainerItemProxy */;
 		};
-		2B8BF4F72DACB89400F6CD4B /* PBXTargetDependency */ = {
+		2BF8FED92DB08EB60054EB9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2B8BF4DD2DACB89200F6CD4B /* daily-quote */;
-			targetProxy = 2B8BF4F62DACB89400F6CD4B /* PBXContainerItemProxy */;
+			target = 2BF8FEBF2DB08EB50054EB9C /* daily-quote */;
+			targetProxy = 2BF8FED82DB08EB60054EB9C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2B8BF4FD2DACB89400F6CD4B /* Debug */ = {
+		2BF8FEDF2DB08EB60054EB9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -304,6 +313,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S7TBFH66F2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -321,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -332,7 +342,7 @@
 			};
 			name = Debug;
 		};
-		2B8BF4FE2DACB89400F6CD4B /* Release */ = {
+		2BF8FEE02DB08EB60054EB9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -367,6 +377,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S7TBFH66F2;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -378,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -388,15 +399,17 @@
 			};
 			name = Release;
 		};
-		2B8BF5002DACB89400F6CD4B /* Debug */ = {
+		2BF8FEE22DB08EB60054EB9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = S7TBFH66F2;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "daily-quote/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -406,8 +419,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lb.daily-quote";
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lb.daily-quote-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -415,15 +428,17 @@
 			};
 			name = Debug;
 		};
-		2B8BF5012DACB89400F6CD4B /* Release */ = {
+		2BF8FEE32DB08EB60054EB9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = S7TBFH66F2;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "daily-quote/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -433,8 +448,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lb.daily-quote";
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "lb.daily-quote-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -442,15 +457,16 @@
 			};
 			name = Release;
 		};
-		2B8BF5032DACB89400F6CD4B /* Debug */ = {
+		2BF8FEE52DB08EB60054EB9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = S7TBFH66F2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "lb.daily-quoteTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -460,15 +476,16 @@
 			};
 			name = Debug;
 		};
-		2B8BF5042DACB89400F6CD4B /* Release */ = {
+		2BF8FEE62DB08EB60054EB9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = S7TBFH66F2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "lb.daily-quoteTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -478,13 +495,14 @@
 			};
 			name = Release;
 		};
-		2B8BF5062DACB89400F6CD4B /* Debug */ = {
+		2BF8FEE82DB08EB60054EB9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = S7TBFH66F2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "lb.daily-quoteUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -494,13 +512,14 @@
 			};
 			name = Debug;
 		};
-		2B8BF5072DACB89400F6CD4B /* Release */ = {
+		2BF8FEE92DB08EB60054EB9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = S7TBFH66F2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "lb.daily-quoteUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -513,43 +532,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2B8BF4D92DACB89200F6CD4B /* Build configuration list for PBXProject "daily-quote" */ = {
+		2BF8FEBB2DB08EB50054EB9C /* Build configuration list for PBXProject "daily-quote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2B8BF4FD2DACB89400F6CD4B /* Debug */,
-				2B8BF4FE2DACB89400F6CD4B /* Release */,
+				2BF8FEDF2DB08EB60054EB9C /* Debug */,
+				2BF8FEE02DB08EB60054EB9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B8BF4FF2DACB89400F6CD4B /* Build configuration list for PBXNativeTarget "daily-quote" */ = {
+		2BF8FEE12DB08EB60054EB9C /* Build configuration list for PBXNativeTarget "daily-quote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2B8BF5002DACB89400F6CD4B /* Debug */,
-				2B8BF5012DACB89400F6CD4B /* Release */,
+				2BF8FEE22DB08EB60054EB9C /* Debug */,
+				2BF8FEE32DB08EB60054EB9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B8BF5022DACB89400F6CD4B /* Build configuration list for PBXNativeTarget "daily-quoteTests" */ = {
+		2BF8FEE42DB08EB60054EB9C /* Build configuration list for PBXNativeTarget "daily-quoteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2B8BF5032DACB89400F6CD4B /* Debug */,
-				2B8BF5042DACB89400F6CD4B /* Release */,
+				2BF8FEE52DB08EB60054EB9C /* Debug */,
+				2BF8FEE62DB08EB60054EB9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B8BF5052DACB89400F6CD4B /* Build configuration list for PBXNativeTarget "daily-quoteUITests" */ = {
+		2BF8FEE72DB08EB60054EB9C /* Build configuration list for PBXNativeTarget "daily-quoteUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2B8BF5062DACB89400F6CD4B /* Debug */,
-				2B8BF5072DACB89400F6CD4B /* Release */,
+				2BF8FEE82DB08EB60054EB9C /* Debug */,
+				2BF8FEE92DB08EB60054EB9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2B8BF4D62DACB89200F6CD4B /* Project object */;
+	rootObject = 2BF8FEB82DB08EB50054EB9C /* Project object */;
 }

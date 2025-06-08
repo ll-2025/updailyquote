@@ -1,0 +1,16 @@
+{
+  "source": "/Users/lb/Desktop/daily-quote/daily-quote/daily-quote/LanguageSettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Language",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 26
+        }
+      }
+    ]
+  },
+  "version": 1
+}

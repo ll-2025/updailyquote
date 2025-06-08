@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily-quoteTests-master.dia",
+    "emit-module-dependencies" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily-quoteTests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily-quoteTests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily-quoteTests-master.swiftdeps"
+  },
+  "/Users/lb/Desktop/daily-quote/daily-quote/daily-quoteTests/daily_quoteTests.swift" : {
+    "const-values" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily_quoteTests.swiftconstvalues",
+    "dependencies" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily_quoteTests.d",
+    "diagnostics" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily_quoteTests.dia",
+    "index-unit-output-path" : "/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily_quoteTests.o",
+    "llvm-bc" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily_quoteTests.bc",
+    "object" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily_quoteTests.o",
+    "swift-dependencies" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily_quoteTests.swiftdeps",
+    "swiftmodule" : "/Users/lb/Desktop/daily-quote/daily-quote/DerivedData/Build/Intermediates.noindex/daily-quote.build/Debug-iphonesimulator/daily-quoteTests.build/Objects-normal/arm64/daily_quoteTests~partial.swiftmodule"
+  }
+}

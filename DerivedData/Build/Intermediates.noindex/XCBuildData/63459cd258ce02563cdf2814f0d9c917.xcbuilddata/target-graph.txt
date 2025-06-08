@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+Target 'daily-quoteTests' in project 'daily-quote'
+➜ Explicit dependency on target 'daily-quote' in project 'daily-quote'
+Target 'daily-quoteUITests' in project 'daily-quote'
+➜ Explicit dependency on target 'daily-quote' in project 'daily-quote'
+Target 'daily-quote' in project 'daily-quote' (no dependencies)
