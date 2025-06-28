@@ -23,6 +23,7 @@ enum QuoteLanguage: String, CaseIterable {
     }
 }
 
+@MainActor
 class QuoteViewModel: ObservableObject {
     @Published var currentQuote: Quote
     @Published var isShareSheetPresented = false
@@ -109,27 +110,26 @@ class QuoteViewModel: ObservableObject {
         showQuoteSharingView = true
     }
     
-    @MainActor
-    func shareQuoteAsImage(style: QuoteImageGenerator.BackgroundStyle = .gradient) {
+    func shareQuoteAsImage(style: QuoteImageGenerator.BackgroundStyle = .coffee) {
         print("🎨 Starting image generation...")
         print("Quote: \(currentQuote.text)")
         print("Style: \(style)")
         
         let quote = self.currentQuote // Capture the quote to avoid self capture issues
         
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            if let image = QuoteImageGenerator.generateImage(from: quote, style: style) {
+        Task {
+            let image = await Task.detached {
+                return QuoteImageGenerator.generateImage(from: quote, style: style)
+            }.value
+            
+            if let image = image {
                 print("✅ Image generated successfully")
-                DispatchQueue.main.async {
-                    self?.shareImage = image
-                    self?.isImageShareSheetPresented = true
-                }
+                self.shareImage = image
+                self.isImageShareSheetPresented = true
             } else {
                 print("❌ Image generation failed, falling back to text sharing")
                 // Fallback to text sharing if image generation fails
-                DispatchQueue.main.async {
-                    self?.shareQuote()
-                }
+                self.shareQuote()
             }
         }
     }

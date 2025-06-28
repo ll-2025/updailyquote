@@ -2,7 +2,7 @@ import SwiftUI
 
 struct QuoteSharingView: View {
     let quote: Quote
-    @State private var selectedStyle: QuoteImageGenerator.BackgroundStyle = .gradient
+    @State private var selectedStyle: QuoteImageGenerator.BackgroundStyle = .coffee
     @State private var showingShareSheet = false
     @State private var generatedImage: UIImage?
     @Environment(\.presentationMode) var presentationMode
@@ -120,66 +120,6 @@ struct QuoteSharingView: View {
     
     private func previewGradient(for style: QuoteImageGenerator.BackgroundStyle) -> LinearGradient {
         switch style {
-        case .gradient:
-            return LinearGradient(
-                colors: [Color.purple, Color.blue],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        case .minimal:
-            return LinearGradient(
-                colors: [Color.gray.opacity(0.2), Color.gray.opacity(0.1)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        case .nature:
-            return LinearGradient(
-                colors: [Color.green.opacity(0.8), Color.green.opacity(0.3)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        case .abstract:
-            return LinearGradient(
-                colors: [Color.purple.opacity(0.8), Color.blue.opacity(0.6)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        case .sunset:
-            return LinearGradient(
-                colors: [Color.orange, Color.pink, Color.purple],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        case .ocean:
-            return LinearGradient(
-                colors: [Color.blue.opacity(0.3), Color.blue.opacity(0.8)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        case .galaxy:
-            return LinearGradient(
-                colors: [Color.black, Color.purple.opacity(0.5)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        case .geometric:
-            return LinearGradient(
-                colors: [Color.gray.opacity(0.1), Color.gray.opacity(0.3)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        case .rainyDay:
-            return LinearGradient(
-                colors: [Color.gray.opacity(0.8), Color.gray.opacity(0.6)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        case .studyAtHome:
-            return LinearGradient(
-                colors: [Color.brown.opacity(0.3), Color.brown.opacity(0.1)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
         case .coffee:
             return LinearGradient(
                 colors: [Color.brown.opacity(0.8), Color.brown.opacity(0.4)],
@@ -189,6 +129,48 @@ struct QuoteSharingView: View {
         case .mountains:
             return LinearGradient(
                 colors: [Color.blue.opacity(0.4), Color.green.opacity(0.6)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case .ocean:
+            return LinearGradient(
+                colors: [Color.blue.opacity(0.3), Color.blue.opacity(0.8)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case .rainyDay:
+            return LinearGradient(
+                colors: [Color.gray.opacity(0.8), Color.gray.opacity(0.6)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case .clouds:
+            return LinearGradient(
+                colors: [Color.blue.opacity(0.6), Color.white.opacity(0.8)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case .activity:
+            return LinearGradient(
+                colors: [Color.orange.opacity(0.8), Color.green.opacity(0.6)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case .galaxy:
+            return LinearGradient(
+                colors: [Color.black, Color.purple.opacity(0.5)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case .study:
+            return LinearGradient(
+                colors: [Color.orange.opacity(0.8), Color.black.opacity(0.6)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case .sunset:
+            return LinearGradient(
+                colors: [Color.orange, Color.pink, Color.purple],
                 startPoint: .top,
                 endPoint: .bottom
             )
