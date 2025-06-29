@@ -43,21 +43,30 @@ class QuoteViewModel: ObservableObject {
             generateNewQuote()
         }
     }
+    @Published var hasCompletedOnboarding: Bool = false
+    @Published var selectedCategories: Set<QuoteCategory> = Set(QuoteCategory.allCases)
     
     private var quotes: [Quote] = []
+    private var filteredQuotes: [Quote] = []
     private let userDefaults = UserDefaults.standard
     
     // Keys for UserDefaults
     private let lastQuoteTextKey = "lastQuoteText"
     private let lastQuoteAuthorKey = "lastQuoteAuthor"
+    private let lastQuoteCategoryKey = "lastQuoteCategory"
     private let lastShownDateKey = "lastShownDate"
     private let languageKey = "selectedLanguage"
     private let favoritesKey = "favoriteQuotes"
     private let themeModeKey = "themeMode"
+    private let onboardingCompletedKey = "hasCompletedOnboarding"
+    private let selectedCategoriesKey = "selectedCategories"
     
     init() {
         // Initialize with a default quote
         currentQuote = Quote(text: "Loading...", author: "")
+        
+        // Load onboarding state
+        hasCompletedOnboarding = userDefaults.bool(forKey: onboardingCompletedKey)
         
         // Load saved language preference or default to English
         let savedLanguage = userDefaults.string(forKey: languageKey) ?? QuoteLanguage.english.rawValue
@@ -66,6 +75,9 @@ class QuoteViewModel: ObservableObject {
         // Load saved theme preference or default to system
         let savedTheme = userDefaults.string(forKey: themeModeKey) ?? ThemeMode.system.rawValue
         themeMode = ThemeMode(rawValue: savedTheme) ?? .system
+        
+        // Load selected categories (after language and theme initialization)
+        loadSelectedCategories()
         
         // Load quotes from JSON
         loadQuotes()
@@ -91,19 +103,36 @@ class QuoteViewModel: ObservableObject {
         do {
             let data = try Data(contentsOf: url)
             quotes = try JSONDecoder().decode([Quote].self, from: data)
+            filterQuotesByCategories()
         } catch {
             print("Error loading quotes: \(error)")
         }
     }
     
     func generateNewQuote() {
-        guard !quotes.isEmpty else { return }
+        let quotesToUse = hasCompletedOnboarding ? filteredQuotes : quotes
+        guard !quotesToUse.isEmpty else { return }
         
-        let randomIndex = Int.random(in: 0..<quotes.count)
-        currentQuote = quotes[randomIndex]
+        let randomIndex = Int.random(in: 0..<quotesToUse.count)
+        currentQuote = quotesToUse[randomIndex]
         
         // Store the new quote
         storeCurrentQuote()
+    }
+    
+    private func filterQuotesByCategories() {
+        if selectedCategories.isEmpty {
+            filteredQuotes = quotes
+        } else {
+            filteredQuotes = quotes.filter { quote in
+                selectedCategories.contains(quote.category)
+            }
+        }
+        
+        // If no quotes match the selected categories, fall back to all quotes
+        if filteredQuotes.isEmpty {
+            filteredQuotes = quotes
+        }
     }
     
     func shareQuote() {
@@ -187,6 +216,7 @@ class QuoteViewModel: ObservableObject {
     private func storeCurrentQuote() {
         userDefaults.set(currentQuote.text, forKey: lastQuoteTextKey)
         userDefaults.set(currentQuote.author, forKey: lastQuoteAuthorKey)
+        userDefaults.set(currentQuote.category.rawValue, forKey: lastQuoteCategoryKey)
         userDefaults.set(Date(), forKey: lastShownDateKey)
     }
     
@@ -197,6 +227,67 @@ class QuoteViewModel: ObservableObject {
             return
         }
         
-        currentQuote = Quote(text: text, author: author)
+        // Try to retrieve the stored category, fallback to auto-categorization if not found
+        let category: QuoteCategory
+        if let categoryString = userDefaults.string(forKey: lastQuoteCategoryKey),
+           let storedCategory = QuoteCategory(rawValue: categoryString) {
+            category = storedCategory
+        } else {
+            // Fallback to auto-categorization for older stored quotes
+            category = Quote.categorizeQuote(text: text, author: author)
+        }
+        
+        currentQuote = Quote(text: text, author: author, category: category)
+    }
+    
+    // MARK: - Onboarding functionality
+    
+    func completeOnboarding() {
+        hasCompletedOnboarding = true
+        userDefaults.set(true, forKey: onboardingCompletedKey)
+        filterQuotesByCategories()
+        generateNewQuote()
+    }
+    
+    func setSelectedCategories(_ categories: Set<QuoteCategory>) {
+        selectedCategories = categories
+        saveSelectedCategories()
+        filterQuotesByCategories()
+        if hasCompletedOnboarding {
+            generateNewQuote()
+        }
+    }
+    
+    private func saveSelectedCategories() {
+        let categoryStrings = selectedCategories.map { $0.rawValue }
+        userDefaults.set(categoryStrings, forKey: selectedCategoriesKey)
+    }
+    
+    private func loadSelectedCategories() {
+        guard let categoryStrings = userDefaults.array(forKey: selectedCategoriesKey) as? [String] else {
+            // Default to all categories if none saved
+            selectedCategories = Set(QuoteCategory.allCases)
+            return
+        }
+        
+        selectedCategories = Set(categoryStrings.compactMap { QuoteCategory(rawValue: $0) })
+        
+        // Ensure we have at least one category selected
+        if selectedCategories.isEmpty {
+            selectedCategories = Set(QuoteCategory.allCases)
+        }
+    }
+    
+    // MARK: - Category management
+    
+    func updateSelectedCategories(_ categories: Set<QuoteCategory>) {
+        setSelectedCategories(categories)
+    }
+    
+    func resetOnboarding() {
+        hasCompletedOnboarding = false
+        userDefaults.set(false, forKey: onboardingCompletedKey)
+        selectedCategories = Set(QuoteCategory.allCases)
+        saveSelectedCategories()
     }
 } 

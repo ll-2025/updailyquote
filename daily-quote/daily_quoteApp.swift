@@ -14,8 +14,14 @@ struct daily_quoteApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(quoteViewModel)
+            Group {
+                if quoteViewModel.hasCompletedOnboarding {
+                    ContentView()
+                } else {
+                    OnboardingView()
+                }
+            }
+            .environmentObject(quoteViewModel)
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .background {

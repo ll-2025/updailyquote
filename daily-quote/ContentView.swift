@@ -18,6 +18,19 @@ extension QuoteLanguage {
             case "newQuote": return "New Quote"
             case "share": return "Share"
             case "aiChat": return "AI Chat"
+            case "categories": return "Categories"
+            case "quoteCategories": return "Quote Categories"
+            case "selectAll": return "Select All"
+            case "clearAll": return "Clear All"
+            case "save": return "Save"
+            case "cancel": return "Cancel"
+            case "resetOnboarding": return "Reset Onboarding"
+            case "categoriesDescription": return "Choose the types of quotes you'd like to see. You can select multiple categories."
+            case "categoriesSelected": return "categories selected"
+            case "chooseInterests": return "Choose Your Interests"
+            case "onboardingCategoriesDescription": return "Select the quote categories that inspire you most. You can change these later in settings."
+            case "startReadingQuotes": return "Start Reading Quotes"
+            case "selectAllCategories": return "Select All Categories"
             default: return key
             }
         case .spanish:
@@ -27,6 +40,19 @@ extension QuoteLanguage {
             case "newQuote": return "Nueva Cita"
             case "share": return "Compartir"
             case "aiChat": return "Chat de IA"
+            case "categories": return "Categorías"
+            case "quoteCategories": return "Categorías de Citas"
+            case "selectAll": return "Seleccionar Todo"
+            case "clearAll": return "Limpiar Todo"
+            case "save": return "Guardar"
+            case "cancel": return "Cancelar"
+            case "resetOnboarding": return "Reiniciar Configuración"
+            case "categoriesDescription": return "Elige los tipos de citas que te gustaría ver. Puedes seleccionar múltiples categorías."
+            case "categoriesSelected": return "categorías seleccionadas"
+            case "chooseInterests": return "Elige Tus Intereses"
+            case "onboardingCategoriesDescription": return "Selecciona las categorías de citas que más te inspiran. Puedes cambiarlas más tarde en configuración."
+            case "startReadingQuotes": return "Comenzar a Leer Citas"
+            case "selectAllCategories": return "Seleccionar Todas las Categorías"
             default: return key
             }
         case .chinese:
@@ -36,6 +62,19 @@ extension QuoteLanguage {
             case "newQuote": return "新引言"
             case "share": return "分享"
             case "aiChat": return "AI聊天"
+            case "categories": return "类别"
+            case "quoteCategories": return "引言类别"
+            case "selectAll": return "选择全部"
+            case "clearAll": return "清除全部"
+            case "save": return "保存"
+            case "cancel": return "取消"
+            case "resetOnboarding": return "重置引导"
+            case "categoriesDescription": return "选择您想看到的引言类型。您可以选择多个类别。"
+            case "categoriesSelected": return "个类别已选择"
+            case "chooseInterests": return "选择您的兴趣"
+            case "onboardingCategoriesDescription": return "选择最能激发您灵感的引言类别。您可以稍后在设置中更改这些。"
+            case "startReadingQuotes": return "开始阅读引言"
+            case "selectAllCategories": return "选择所有类别"
             default: return key
             }
         }
@@ -52,6 +91,7 @@ struct ContentView: View {
     @State private var showingThemeSettings = false
     @State private var showingLanguageSettings = false
     @State private var showingAIChat = false
+    @State private var showingCategorySettings = false
     
     // Array of beautiful gradient combinations
     private let backgroundColorSets: [[Color]] = [
@@ -74,6 +114,21 @@ struct ContentView: View {
             return .dark
         case .system:
             return nil
+        }
+    }
+    
+    // Computed property for category color
+    private var categoryColor: Color {
+        switch quoteViewModel.currentQuote.category.color {
+        case "orange": return .orange
+        case "pink": return .pink
+        case "red": return .red
+        case "blue": return .blue
+        case "purple": return .purple
+        case "yellow": return .yellow
+        case "indigo": return .indigo
+        case "green": return .green
+        default: return .accentColor
         }
     }
     
@@ -134,6 +189,21 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
+                        showingCategorySettings = true
+                    }) {
+                        Image(systemName: "slider.horizontal.3")
+                            .font(.system(size: 18))
+                            .foregroundColor(.accentColor)
+                            .frame(width: 44, height: 44)
+                            .background(
+                                Circle()
+                                    .fill(Color.accentColor.opacity(0.1))
+                            )
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
                         showingLanguageSettings = true
                     }) {
                         Image(systemName: "globe")
@@ -182,15 +252,37 @@ struct ContentView: View {
                         .padding(.horizontal)
                         .opacity(quoteOpacity)
                     
-                    // Author
-                    HStack {
-                        Spacer()
-                        Text("— \(quoteViewModel.currentQuote.author)")
-                            .font(.system(size: 16, weight: .regular, design: .serif))
-                            .foregroundColor(.secondary)
-                            .italic()
-                            .padding(.trailing, 24)
+                    // Author and Category
+                    VStack(spacing: 8) {
+                        HStack {
+                            Spacer()
+                            Text("— \(quoteViewModel.currentQuote.author)")
+                                .font(.system(size: 16, weight: .regular, design: .serif))
+                                .foregroundColor(.secondary)
+                                .italic()
+                                .padding(.trailing, 24)
+                                .opacity(quoteOpacity)
+                        }
+                        
+                        // Category indicator
+                        HStack {
+                            Spacer()
+                            HStack(spacing: 6) {
+                                Image(systemName: quoteViewModel.currentQuote.category.icon)
+                                    .font(.system(size: 12, weight: .medium))
+                                Text(quoteViewModel.currentQuote.category.localizedDisplayName(for: quoteViewModel.selectedLanguage))
+                                    .font(.system(size: 12, weight: .medium))
+                            }
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(
+                                Capsule()
+                                    .fill(categoryColor.opacity(0.15))
+                            )
+                            .foregroundColor(categoryColor)
                             .opacity(quoteOpacity)
+                            .padding(.trailing, 24)
+                        }
                     }
                 }
                 .padding(.horizontal)
@@ -330,6 +422,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showingLanguageSettings) {
             LanguageSettingsView()
+        }
+        .sheet(isPresented: $showingCategorySettings) {
+            CategorySettingsView()
         }
         .fullScreenCover(isPresented: $showingAIChat) {
             AIChatView(currentQuote: quoteViewModel.currentQuote)
