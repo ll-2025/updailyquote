@@ -17,6 +17,8 @@ extension QuoteLanguage {
             case "removeFromFavorites": return "Remove from Favorites"
             case "newQuote": return "New Quote"
             case "share": return "Share"
+            case "like": return "Like"
+            case "liked": return "Liked"
             case "aiChat": return "AI Chat"
             case "categories": return "Categories"
             case "quoteCategories": return "Quote Categories"
@@ -39,6 +41,8 @@ extension QuoteLanguage {
             case "removeFromFavorites": return "Quitar de Favoritos"
             case "newQuote": return "Nueva Cita"
             case "share": return "Compartir"
+            case "like": return "Me gusta"
+            case "liked": return "Te gusta"
             case "aiChat": return "Chat de IA"
             case "categories": return "Categorías"
             case "quoteCategories": return "Categorías de Citas"
@@ -61,6 +65,8 @@ extension QuoteLanguage {
             case "removeFromFavorites": return "从收藏中移除"
             case "newQuote": return "新引言"
             case "share": return "分享"
+            case "like": return "喜欢"
+            case "liked": return "已喜欢"
             case "aiChat": return "AI聊天"
             case "categories": return "类别"
             case "quoteCategories": return "引言类别"
@@ -92,8 +98,10 @@ struct ContentView: View {
     @State private var showingLanguageSettings = false
     @State private var showingAIChat = false
     @State private var showingCategorySettings = false
+    @State private var heartBeat = false
+    @State private var shareRotation = 0.0
     
-    // Array of beautiful gradient combinations
+    // Keep your existing beautiful color system
     private let backgroundColorSets: [[Color]] = [
         [Color.blue.opacity(0.3), Color.purple.opacity(0.2)],
         [Color.pink.opacity(0.3), Color.orange.opacity(0.2)],
@@ -139,7 +147,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            // Dynamic background gradient
+            // Keep your existing beautiful wallpaper system
             LinearGradient(
                 gradient: Gradient(colors: [
                     colorScheme == .dark ? Color.black : Color.white,
@@ -150,7 +158,7 @@ struct ContentView: View {
             )
             .ignoresSafeArea()
             
-            // Dynamic color overlay gradient
+            // Keep your dynamic color overlay gradient 
             LinearGradient(
                 gradient: Gradient(colors: currentBackgroundColors),
                 startPoint: .topLeading,
@@ -159,7 +167,7 @@ struct ContentView: View {
             .ignoresSafeArea()
             .opacity(wallpaperOpacity)
             
-            // Overlay gradient for better readability
+            // Keep your overlay gradient for readability
             LinearGradient(
                 gradient: Gradient(colors: [
                     colorScheme == .dark ? Color.black.opacity(0.6) : Color.white.opacity(0.7),
@@ -171,176 +179,154 @@ struct ContentView: View {
             .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                // Header toolbar
-                HStack {
-                    Button(action: {
-                        showingThemeSettings = true
-                    }) {
-                        Image(systemName: "paintbrush.fill")
-                            .font(.system(size: 18))
-                            .foregroundColor(.accentColor)
-                            .frame(width: 44, height: 44)
-                            .background(
-                                Circle()
-                                    .fill(Color.accentColor.opacity(0.1))
-                            )
-                    }
+                // Instagram-style header with your icons
+                HStack(spacing: 16) {
+                    // App branding like Instagram
+                    Text("Daily Quote")
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .foregroundColor(.primary)
                     
                     Spacer()
                     
-                    Button(action: {
-                        showingCategorySettings = true
-                    }) {
-                        Image(systemName: "slider.horizontal.3")
-                            .font(.system(size: 18))
-                            .foregroundColor(.accentColor)
-                            .frame(width: 44, height: 44)
-                            .background(
-                                Circle()
-                                    .fill(Color.accentColor.opacity(0.1))
-                            )
-                    }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        showingLanguageSettings = true
-                    }) {
-                        Image(systemName: "globe")
-                            .font(.system(size: 18))
-                            .foregroundColor(.accentColor)
-                            .frame(width: 44, height: 44)
-                            .background(
-                                Circle()
-                                    .fill(Color.accentColor.opacity(0.1))
-                            )
-                    }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        showingFavorites = true
-                    }) {
-                        Image(systemName: "heart.fill")
-                            .font(.system(size: 18))
-                            .foregroundColor(.accentColor)
-                            .frame(width: 44, height: 44)
-                            .background(
-                                Circle()
-                                    .fill(Color.accentColor.opacity(0.1))
-                            )
+                    // Social app style icon row
+                    HStack(spacing: 16) {
+                        ModernIconButton(icon: "paintbrush.fill", color: .accentColor) {
+                            showingThemeSettings = true
+                        }
+                        
+                        ModernIconButton(icon: "slider.horizontal.3", color: .accentColor) {
+                            showingCategorySettings = true
+                        }
+                        
+                        ModernIconButton(icon: "globe", color: .accentColor) {
+                            showingLanguageSettings = true
+                        }
+                        
+                        ModernIconButton(icon: "heart.fill", color: .accentColor) {
+                            showingFavorites = true
+                        }
                     }
                 }
-                .padding(.horizontal)
-                .padding(.top, 12)
+                .padding(.horizontal, 20)
+                .padding(.top, 16)
                 
                 Spacer()
                 
-                VStack(spacing: 24) {
-                    // Quote marks
-                    Image(systemName: "quote.opening")
-                        .font(.system(size: 36, weight: .bold))
-                        .foregroundColor(Color.primary.opacity(0.2))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
-                    
-                    // Quote text
-                    Text(quoteViewModel.currentQuote.text)
-                        .font(.system(size: 24, weight: .medium, design: .serif))
-                        .multilineTextAlignment(.center)
-                        .lineSpacing(8)
-                        .padding(.horizontal)
-                        .opacity(quoteOpacity)
-                    
-                    // Author and Category
-                    VStack(spacing: 8) {
-                        HStack {
-                            Spacer()
+                // Instagram-style post card
+                VStack(spacing: 0) {
+                    // Quote content like an Instagram post
+                    VStack(spacing: 24) {
+                        // Elegant quote display
+                        VStack(spacing: 20) {
+                            Text(quoteViewModel.currentQuote.text)
+                                .font(.system(size: 26, weight: .medium, design: .serif))
+                                .multilineTextAlignment(.center)
+                                .lineSpacing(8)
+                                .foregroundColor(.primary)
+                                .opacity(quoteOpacity)
+                            
                             Text("— \(quoteViewModel.currentQuote.author)")
-                                .font(.system(size: 16, weight: .regular, design: .serif))
+                                .font(.system(size: 18, weight: .semibold, design: .rounded))
                                 .foregroundColor(.secondary)
-                                .italic()
-                                .padding(.trailing, 24)
                                 .opacity(quoteOpacity)
                         }
                         
-                        // Category indicator
-                        HStack {
-                            Spacer()
-                            HStack(spacing: 6) {
-                                Image(systemName: quoteViewModel.currentQuote.category.icon)
-                                    .font(.system(size: 12, weight: .medium))
-                                Text(quoteViewModel.currentQuote.category.localizedDisplayName(for: quoteViewModel.selectedLanguage))
-                                    .font(.system(size: 12, weight: .medium))
-                            }
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 6)
-                            .background(
-                                Capsule()
-                                    .fill(categoryColor.opacity(0.15))
+                        // Modern category tag
+                        HStack(spacing: 8) {
+                            Image(systemName: quoteViewModel.currentQuote.category.icon)
+                                .font(.system(size: 13, weight: .semibold))
+                            Text(quoteViewModel.currentQuote.category.localizedDisplayName(for: quoteViewModel.selectedLanguage))
+                                .font(.system(size: 13, weight: .semibold, design: .rounded))
+                                .textCase(.uppercase)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .background(
+                            Capsule()
+                                .fill(categoryColor.opacity(0.15))
+                        )
+                        .foregroundColor(categoryColor)
+                        .opacity(quoteOpacity)
+                    }
+                    .padding(.all, 32)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(
+                                colorScheme == .dark ? 
+                                Color(UIColor.secondarySystemBackground).opacity(0.85) : 
+                                Color.white.opacity(0.9)
                             )
-                            .foregroundColor(categoryColor)
-                            .opacity(quoteOpacity)
-                            .padding(.trailing, 24)
+                            .shadow(color: Color.black.opacity(0.08), radius: 16, x: 0, y: 8)
+                    )
+                    
+                    // Instagram-style action bar
+                    HStack(spacing: 24) {
+                        // Heart button with animation - dynamic text for better feedback
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
+                                heartBeat.toggle()
+                                quoteViewModel.toggleFavorite(for: quoteViewModel.currentQuote)
+                            }
+                        }) {
+                            HStack(spacing: 8) {
+                                Image(systemName: quoteViewModel.isQuoteFavorited(quoteViewModel.currentQuote) ? "heart.fill" : "heart")
+                                    .font(.system(size: 22, weight: .semibold))
+                                    .foregroundColor(quoteViewModel.isQuoteFavorited(quoteViewModel.currentQuote) ? .red : .primary)
+                                    .scaleEffect(heartBeat ? 1.3 : 1.0)
+                                
+                                Text(quoteViewModel.isQuoteFavorited(quoteViewModel.currentQuote) ? 
+                                     quoteViewModel.selectedLanguage.localizedContentText("liked") :
+                                     quoteViewModel.selectedLanguage.localizedContentText("like"))
+                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        // Share button with rotation - localized across languages
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                shareRotation += 360
+                            }
+                            quoteViewModel.shareQuote()
+                        }) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "paperplane.fill")
+                                    .font(.system(size: 20, weight: .semibold))
+                                    .rotationEffect(.degrees(shareRotation))
+                                Text(quoteViewModel.selectedLanguage.localizedContentText("share"))
+                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                            }
+                            .foregroundColor(.primary)
                         }
                     }
+                    .padding(.horizontal, 32)
+                    .padding(.top, 20)
                 }
-                .padding(.horizontal)
-                .padding(.vertical, 40)
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color(UIColor.secondarySystemGroupedBackground))
-                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 2)
-                )
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 20)
                 
                 Spacer()
                 
+                // Modern action buttons with social media style
                 VStack(spacing: 16) {
-                    // AI Chat button
-                    Button(action: {
+                    // AI Chat - Instagram Story style
+                    SocialButton(
+                        title: quoteViewModel.selectedLanguage.localizedContentText("aiChat"),
+                        icon: "brain.head.profile",
+                        style: .gradient,
+                        colors: [Color.purple, Color.blue]
+                    ) {
                         showingAIChat = true
-                    }) {
-                        HStack {
-                            Image(systemName: "brain.filled.head.profile")
-                                .font(.system(size: 16))
-                            Text(quoteViewModel.selectedLanguage.localizedContentText("aiChat"))
-                                .font(.system(size: 16, weight: .semibold))
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            LinearGradient(
-                                gradient: Gradient(colors: [Color.purple, Color.blue]),
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
-                        .shadow(color: Color.purple.opacity(0.3), radius: 5, x: 0, y: 2)
                     }
                     
-                    // Favorite button
-                    Button(action: {
-                        quoteViewModel.toggleFavorite(for: quoteViewModel.currentQuote)
-                    }) {
-                        HStack {
-                            Image(systemName: quoteViewModel.isQuoteFavorited(quoteViewModel.currentQuote) ? "heart.fill" : "heart")
-                            Text(quoteViewModel.isQuoteFavorited(quoteViewModel.currentQuote) ? quoteViewModel.selectedLanguage.localizedContentText("removeFromFavorites") : quoteViewModel.selectedLanguage.localizedContentText("addToFavorites"))
-                        }
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .strokeBorder(Color.accentColor, lineWidth: 1.5)
-                        )
-                        .foregroundColor(.accentColor)
-                    }
-                    
-                    // New Quote button - Refined UI
-                    Button(action: {
+                    // New Quote button - same size as AI Chat
+                    SocialButton(
+                        title: quoteViewModel.selectedLanguage.localizedContentText("newQuote"),
+                        icon: "sparkles",
+                        style: .gradient,
+                        colors: [Color.accentColor, Color.accentColor.opacity(0.8)]
+                    ) {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             quoteOpacity = 0
                             wallpaperOpacity = 0
@@ -355,47 +341,10 @@ struct ContentView: View {
                                 wallpaperOpacity = 1.0
                             }
                         }
-                    }) {
-                        HStack {
-                            Image(systemName: "sparkles")
-                                .font(.system(size: 16))
-                            Text(quoteViewModel.selectedLanguage.localizedContentText("newQuote"))
-                                .font(.system(size: 16, weight: .semibold))
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            LinearGradient(
-                                gradient: Gradient(colors: [Color.accentColor, Color.accentColor.opacity(0.8)]),
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
-                        .shadow(color: Color.accentColor.opacity(0.3), radius: 5, x: 0, y: 2)
-                    }
-                    
-                    // Share button
-                    Button(action: {
-                        quoteViewModel.shareQuote()
-                    }) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.up")
-                            Text(quoteViewModel.selectedLanguage.localizedContentText("share"))
-                        }
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .strokeBorder(Color.accentColor, lineWidth: 1.5)
-                        )
-                        .foregroundColor(.accentColor)
                     }
                 }
-                .padding(.horizontal, 24)
-                .padding(.bottom, 32)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 40)
             }
         }
         .preferredColorScheme(effectiveColorScheme)
@@ -428,6 +377,92 @@ struct ContentView: View {
         }
         .fullScreenCover(isPresented: $showingAIChat) {
             AIChatView(currentQuote: quoteViewModel.currentQuote)
+        }
+    }
+}
+
+// Modern Instagram-style icon button
+struct ModernIconButton: View {
+    let icon: String
+    let color: Color
+    let action: () -> Void
+    @State private var isPressed = false
+    
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: icon)
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundColor(color)
+                .frame(width: 40, height: 40)
+                .background(
+                    Circle()
+                        .fill(color.opacity(0.1))
+                        .overlay(
+                            Circle()
+                                .strokeBorder(color.opacity(0.2), lineWidth: 1)
+                        )
+                )
+                .scaleEffect(isPressed ? 0.9 : 1.0)
+        }
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                isPressed = pressing
+            }
+        }, perform: {})
+    }
+}
+
+// Social media style button component
+struct SocialButton: View {
+    enum Style {
+        case gradient, outline
+    }
+    
+    let title: String
+    let icon: String
+    let style: Style
+    let colors: [Color]
+    let action: () -> Void
+    @State private var isPressed = false
+    
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 12) {
+                Image(systemName: icon)
+                    .font(.system(size: 18, weight: .semibold))
+                Text(title)
+                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 52)
+            .background(backgroundView)
+            .foregroundColor(style == .gradient ? .white : colors.first)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .scaleEffect(isPressed ? 0.96 : 1.0)
+        }
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                isPressed = pressing
+            }
+        }, perform: {})
+    }
+    
+    @ViewBuilder
+    private var backgroundView: some View {
+        if style == .gradient {
+            LinearGradient(
+                colors: colors,
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+            .shadow(color: colors.first?.opacity(0.3) ?? Color.clear, radius: 8, x: 0, y: 4)
+        } else {
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(colors.first ?? Color.accentColor, lineWidth: 2)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color(UIColor.systemBackground).opacity(0.8))
+                )
         }
     }
 }
